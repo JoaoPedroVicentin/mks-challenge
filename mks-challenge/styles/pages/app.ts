@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    max-width: 1440px;
     min-height: 100vh;
 
     display: flex;
@@ -21,7 +20,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
 
     gap: 0.5rem;
-    padding: 2rem 4rem;
+    padding: 1.75rem 4rem;
     margin: 0 auto;
 `
 
@@ -38,8 +37,9 @@ export const LogoTitle = styled.div`
 export const ButtonCart = styled.div`
     background-color: ${props => props.theme.white};
     color: ${props => props.theme.black};
+    cursor: pointer;
 
-    width: 5.625rem;
+    width: 4rem;
 
     display: flex;
     align-items: center;

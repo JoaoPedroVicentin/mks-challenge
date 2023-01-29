@@ -11,7 +11,7 @@ export function Header() {
             </LogoTitle>
 
             <ButtonCart>
-                <ShoppingCart size={24} weight='bold' />
+                <ShoppingCart size={18} weight='bold' />
                 <span>0</span>
             </ButtonCart>
         </HeaderContainer>
