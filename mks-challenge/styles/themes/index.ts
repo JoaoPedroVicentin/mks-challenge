@@ -10,4 +10,6 @@ export const defaultTheme = {
     black: '#000000',
     blue: '#0F52BA',
 
+    blueHover: '#1964D9'
+
 }

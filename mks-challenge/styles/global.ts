@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.gray500}
     }
 
+    button: {
+        cursor: pointer;
+    }
+
     body, button {
         font-family: 'Montserrat', sans-serif;
         font-weight: 300;

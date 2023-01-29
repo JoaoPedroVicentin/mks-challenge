@@ -10,7 +10,7 @@ interface ProductProps {
     price: number
 }
 
-export function CardProduct({name, description, photo, price}: ProductProps) {
+export function CardProduct({ name, description, photo, price }: ProductProps) {
     return (
         <CardProductContainer>
             <ImageProductContainer>

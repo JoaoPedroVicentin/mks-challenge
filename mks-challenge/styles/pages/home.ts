@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const HomeContainer = styled.main`
     max-width: 1440px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -10,6 +11,18 @@ export const HomeContainer = styled.main`
     margin: 0 auto;
     padding: 5rem 10rem;
     gap: 2rem;
+
+    @media (max-width: 1080px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 580px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 export const CardProductContainer = styled.div`
@@ -42,7 +55,7 @@ export const ProductInfos = styled.div`
 
     div{
         display: flex;
-        gap: 0.25rem;
+        gap: 0.5rem;
         justify-content: space-between;
 
         span{
@@ -88,7 +101,6 @@ export const CardFooterButton = styled.button`
 
     border: none;
     border-radius: 0 0 8px 8px;
-    cursor: pointer;
 
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 import { HomeContainer } from "@/styles/pages/home";
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import { CardProduct } from "../components/CardProduct";
 import { api } from "../lib/axios";
 
@@ -19,12 +20,14 @@ export default function Home({ products }: ProductProps) {
     <HomeContainer>
       {products.map(product => {
         return (
-          <CardProduct
-            key={product.id}
-            name={product.name}
-            description={product.description}
-            photo={product.photo}
-            price={product.price} />
+          <Link key={product.id} href={`/product/${product.id}`}>
+            <CardProduct
+              key={product.id}
+              name={product.name}
+              description={product.description}
+              photo={product.photo}
+              price={product.price} />
+          </Link>
         )
       })}
     </HomeContainer>
@@ -40,6 +43,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       products
-    }
+    },
   }
 }

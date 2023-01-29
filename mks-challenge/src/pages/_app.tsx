@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 
 import { GlobalStyle } from '@/styles/global'
-import { defaultTheme } from '@/styles/themes/default'
+import { defaultTheme } from '@/styles/themes'
 import { ThemeProvider } from 'styled-components'
 import { Container } from '@/styles/pages/app'
 import { Header } from '../components/Header'
