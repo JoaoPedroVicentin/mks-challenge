@@ -111,4 +111,10 @@ export const CardFooterButton = styled.button`
 
     font-size: 0.875rem;
     font-weight: 600;
+
+    cursor: pointer;
+
+    &:hover{
+        background-color: ${props => props.theme.blueHover};
+    }
 `

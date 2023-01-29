@@ -11,7 +11,7 @@ export const CartContent = styled(Dialog.Content)`
 
     background-color: ${props => props.theme.blue};
 
-    padding: 1.5rem;
+    padding: 1.5rem 1.75rem;
     box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
 
     display: flex;
@@ -21,6 +21,11 @@ export const CartContent = styled(Dialog.Content)`
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+
+        h2{
+            font-size: 1rem;
+            color: ${props => props.theme.white};
+        }
     }
 
     @media (max-width: 420px) {
@@ -37,7 +42,7 @@ export const CartHeader = styled.header`
 `
 
 export const CartTitle = styled.h2`
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
 
     padding-right: 5rem;
@@ -57,108 +62,6 @@ export const CartClose = styled(Dialog.Close)`
     align-items: center;
     justify-content: center;
 
-    cursor: pointer;
-`
-
-export const CartProduct = styled.div`
-    width: 100%;
-    background-color: ${props => props.theme.white};
-    padding: 1rem 0.5rem;
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1.25fr 1.25fr;
-    align-items: center;
-    justify-content: center;
-    
-    gap: 1.25rem;
-    align-items: center;
-    position: relative;
-`
-
-export const CartProductImage = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
-
-export const CartProductName = styled.p`
-    font-size: 0.85rem;
-    font-weight: 400;
-`
-
-export const CartProductQuantity = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    p{
-        font-size: 0.5rem;
-        font-weight: 400;
-        margin-bottom: 0.25rem;
-    }
-
-    div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        border: 0.3px solid ${props => props.theme.gray300};
-        border-radius: 4px;
-        padding: 0.25rem 0.5rem;
-
-        button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: none;
-            border: none;
-            cursor: pointer;
-
-            color: ${props => props.theme.black};
-        }
-
-        span{
-            font-size: 0.75rem;
-            font-weight: 400;
-
-            border-left: 1px solid ${props => props.theme.gray300};
-            border-right: 1px solid ${props => props.theme.gray300};
-
-            color: ${props => props.theme.black};
-
-            padding: 0 0.25rem;
-        }
-    }
-`
-
-export const CartProductPrice = styled.p`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: ${props => props.theme.black};
-    font-size: 1rem;
-    font-weight: 700;
-`
-
-export const CartProductRemove = styled.button`
-    width: 1.55rem;
-    height: 1.55rem;
-    position: absolute;
-    top: calc(-1.25rem / 2);
-    right: calc(-1.25rem / 2);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: none;
-    border: none;
-    border-radius: 50%;
-
-    background-color: ${props => props.theme.black};
-    color: ${props => props.theme.white};
     cursor: pointer;
 `
 
@@ -183,7 +86,7 @@ export const CartFooter = styled.footer`
         padding: 1rem 2rem;
 
         p{
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: ${props => props.theme.white};
         }
@@ -193,12 +96,21 @@ export const CartFooter = styled.footer`
         border: none;
         background-color: ${props => props.theme.black};
         width: 100%;
-        padding: 2rem 0;
+        padding: 1rem 0;
 
         cursor: pointer;
 
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: ${props => props.theme.white};
+
+        :hover{
+            opacity: 0.9;
+        }
+
+        &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
     }
 `

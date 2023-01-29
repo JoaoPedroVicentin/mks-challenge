@@ -20,14 +20,11 @@ export default function Home({ products }: ProductProps) {
     <HomeContainer>
       {products.map(product => {
         return (
-          <Link key={product.id} href={`/product/${product.id}`}>
+          // <Link key={product.id} href={`/product/${product.id}`}>
             <CardProduct
               key={product.id}
-              name={product.name}
-              description={product.description}
-              photo={product.photo}
-              price={product.price} />
-          </Link>
+              product={product} />
+          //</Link>
         )
       })}
     </HomeContainer>

@@ -6,17 +6,20 @@ import { ThemeProvider } from 'styled-components'
 import { Container } from '@/styles/pages/app'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { CartContextProvider } from '../context/CartContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
 
-      <Container>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </Container>
+      <CartContextProvider>
+        <Container>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </Container>
+      </CartContextProvider>
     </ThemeProvider>
   )
 }

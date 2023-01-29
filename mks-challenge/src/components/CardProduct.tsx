@@ -1,30 +1,48 @@
 import { CardFooterButton, CardProductContainer, ProductInfos, ImageProductContainer } from "@/styles/pages/home";
 import Image from "next/image";
 import { ShoppingBag } from "phosphor-react";
+import { useCart } from "../hooks/useCart";
 import { priceFormatter } from "../utils/formatter";
 
-interface ProductProps {
+interface Product {
+    id: string
     name: string
     description: string
     photo: string
     price: number
 }
 
-export function CardProduct({ name, description, photo, price }: ProductProps) {
+interface ProductProps{
+    product: Product
+}
+
+export function CardProduct({ product }: ProductProps) {
+
+    const { addProductToCart } = useCart()
+
+    function handleAddToCart(){
+        const productToAdd = {
+            ...product,
+            quantity: 1
+        }
+        addProductToCart(productToAdd)
+    }
+
     return (
         <CardProductContainer>
             <ImageProductContainer>
-                <Image src={photo} width={115} height={125} alt={name} />
+                <Image src={product.photo} width={115} height={125} alt={product.name} />
             </ImageProductContainer>
             <ProductInfos>
                 <div>
-                    <h1>{name}</h1>
-                    <span>{priceFormatter.format(price)}</span>
+                    <h1>{product.name}</h1>
+                    <span>{priceFormatter.format(product.price)}</span>
                 </div>
-                <p>{description}</p>
+                <p>{product.description}</p>
             </ProductInfos>
-            <CardFooterButton>
-                <ShoppingBag fontSize={18} weight='bold' />COMPRAR
+            <CardFooterButton onClick={handleAddToCart} >
+                <ShoppingBag fontSize={18} weight='bold' />
+                COMPRAR
             </CardFooterButton>
         </CardProductContainer>
     )

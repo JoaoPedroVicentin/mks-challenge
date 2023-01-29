@@ -1,12 +1,21 @@
 import { ButtonCart, HeaderContainer, LogoTitle } from "@/styles/pages/app";
-import { Minus, Plus, ShoppingCart, X } from "phosphor-react";
+import { ShoppingCart, X } from "phosphor-react";
 import * as Dialog from '@radix-ui/react-dialog'
-import { CartClose, CartContent, CartFooter, CartHeader, CartProduct, CartProductImage, CartProductName, CartProductPrice, CartProductQuantity, CartProductRemove, CartTitle } from "@/styles/pages/cart";
-
-import Clock from '../assets/apple-watch.svg'
-import Image from "next/image";
+import { useCart } from "../hooks/useCart";
+import {
+    CartClose,
+    CartContent,
+    CartFooter,
+    CartHeader,
+    CartTitle
+} from "@/styles/pages/cart";
+import { CartProduct } from "./CartProduct";
+import { priceFormatter } from "../utils/formatter";
 
 export function Header() {
+
+    const { cartQuantity, cartItems, cartItemsTotal } = useCart()
+
     return (
         <HeaderContainer>
             <LogoTitle>
@@ -18,7 +27,7 @@ export function Header() {
                 <Dialog.Trigger asChild>
                     <ButtonCart>
                         <ShoppingCart size={16} weight='bold' />
-                        <span>0</span>
+                        <span>{cartQuantity}</span>
                     </ButtonCart>
                 </Dialog.Trigger>
 
@@ -33,94 +42,23 @@ export function Header() {
                         </CartHeader>
 
                         <section>
-                            <CartProduct>
-                                <CartProductImage>
-                                    <Image src={Clock} alt='' />
-                                </CartProductImage>
-
-                                <CartProductName>
-                                    Apple Watch Series 4 GPS
-                                </CartProductName>
-
-                                <CartProductQuantity>
-                                    <p>Qtde</p>
-                                    <div>
-                                        <button><Plus size={10} weight='regular' /></button>
-                                        <span>0</span>
-                                        <button><Minus size={10} weight='regular' /></button>
-                                    </div>
-                                </CartProductQuantity>
-
-                                <CartProductPrice>
-                                    R$ 399
-                                </CartProductPrice>
-
-                                <CartProductRemove>
-                                    <X size={12} weight='bold' />
-                                </CartProductRemove>
-                            </CartProduct>
-
-                            <CartProduct>
-                                <CartProductImage>
-                                    <Image src={Clock} alt='' />
-                                </CartProductImage>
-
-                                <CartProductName>
-                                    Apple Watch Series 4 GPS
-                                </CartProductName>
-
-                                <CartProductQuantity>
-                                    <p>Qtde</p>
-                                    <div>
-                                        <button><Plus size={10} weight='regular' /></button>
-                                        <span>0</span>
-                                        <button><Minus size={10} weight='regular' /></button>
-                                    </div>
-                                </CartProductQuantity>
-
-                                <CartProductPrice>
-                                    R$ 399
-                                </CartProductPrice>
-
-                                <CartProductRemove>
-                                    <X size={12} weight='bold' />
-                                </CartProductRemove>
-                            </CartProduct>
-
-                            <CartProduct>
-                                <CartProductImage>
-                                    <Image src={Clock} alt='' />
-                                </CartProductImage>
-
-                                <CartProductName>
-                                    Apple Watch Series 4 GPS
-                                </CartProductName>
-
-                                <CartProductQuantity>
-                                    <p>Qtde</p>
-                                    <div>
-                                        <button><Plus size={10} weight='regular' /></button>
-                                        <span>0</span>
-                                        <button><Minus size={10} weight='regular' /></button>
-                                    </div>
-                                </CartProductQuantity>
-
-                                <CartProductPrice>
-                                    R$ 399
-                                </CartProductPrice>
-
-                                <CartProductRemove>
-                                    <X size={12} weight='bold' />
-                                </CartProductRemove>
-                            </CartProduct>
+                            {cartItems.length <= 0 ? <h2>Parece que seu carrinho está vazio !</h2> : 
+                                cartItems.map(item => (
+                                    <CartProduct key={item.id}
+                                        id={item.id} name={item.name}
+                                        price={item.price}
+                                        photo={item.photo}
+                                        quantity={item.quantity} />
+                                ))
+                            }
                         </section>
 
                         <CartFooter>
                             <div>
                                 <p>Total:</p>
-                                <p>R$399</p>
+                                <p>{priceFormatter.format(cartItemsTotal)}</p>
                             </div>
-                            <button>
+                            <button disabled={cartItems.length === 0}>
                                 Finalizar Compra
                             </button>
                         </CartFooter>

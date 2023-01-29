@@ -22,6 +22,10 @@ export const HeaderContainer = styled.header`
     gap: 0.5rem;
     padding: 1.75rem 4rem;
     margin: 0 auto;
+
+    @media (max-width: 350px) {
+        padding: 1.75rem 2rem;
+    }
 `
 
 export const LogoTitle = styled.div`
