@@ -30,7 +30,7 @@ export const CartContent = styled(Dialog.Content)`
             color: ${props => props.theme.white};
         }
 
-        padding: 1rem;
+        padding: 1rem 0.75rem;
         overflow: auto;
 
         ::-webkit-scrollbar{
@@ -41,6 +41,11 @@ export const CartContent = styled(Dialog.Content)`
         ::-webkit-scrollbar-thumb{
             background-color: ${props => props.theme.white};
             width: 7px;
+        }
+
+        @media (max-width: 420px) {
+            width: 100%;
+            padding: 1rem 2rem;
         }
         
     }
@@ -56,7 +61,7 @@ export const CartHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 `
 
 export const CartTitle = styled.h2`
@@ -65,6 +70,10 @@ export const CartTitle = styled.h2`
 
     padding-right: 5rem;
     color: ${props => props.theme.white};
+
+    @media (max-width: 420px) {
+        padding: 0 2rem;
+    }
 `
 
 export const CartClose = styled(Dialog.Close)`

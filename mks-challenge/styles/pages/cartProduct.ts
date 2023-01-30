@@ -6,7 +6,7 @@ export const CartProductContainer = styled.div`
     padding: 1rem 0.5rem;
     border-radius: 8px;
     display: grid;
-    grid-template-columns: 1fr 2fr 1.25fr 1.25fr;
+    grid-template-columns: 1fr 2fr 2fr;
     align-items: center;
     justify-content: center;
     
@@ -14,8 +14,19 @@ export const CartProductContainer = styled.div`
     align-items: center;
     position: relative;
 
-    @media (max-width: 380px) {
-        grid-template-columns: 1fr 1fr 1fr;
+    @media (max-width: 420px) {
+        grid-template-columns: 1fr;
+    }
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 0 2rem;
+
+        @media (max-width: 420px) {
+            justify-content: center;
+        }
+       
     }
 `
 
@@ -23,11 +34,23 @@ export const CartProductImage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 420px) {
+        img{
+            width: 65%;
+            height: 18vh;
+        }
+    }
 `
 
 export const CartProductName = styled.p`
     font-size: 0.85rem;
     font-weight: 400;
+
+    @media (max-width: 420px) {
+        margin: 0 auto;
+        font-size: 1rem;
+    }
 `
 
 export const CartProductQuantity = styled.div`
@@ -39,6 +62,10 @@ export const CartProductQuantity = styled.div`
         font-size: 0.5rem;
         font-weight: 400;
         margin-bottom: 0.25rem;
+
+        @media (max-width: 420px) {
+            display: none;
+        }
     }
 
     div{
@@ -72,6 +99,15 @@ export const CartProductQuantity = styled.div`
             color: ${props => props.theme.black};
 
             padding: 0 0.25rem;
+
+            @media (max-width: 420px) {
+                font-size: 1.15rem;
+                padding: 0 0.75rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            
         }
     }
 `
@@ -84,6 +120,13 @@ export const CartProductPrice = styled.p`
     color: ${props => props.theme.black};
     font-size: 1rem;
     font-weight: 700;
+
+    @media (max-width: 420px) {
+        background-color: ${props => props.theme.gray900};
+        color: ${props => props.theme.white};
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+    }
 `
 
 export const CartProductRemove = styled.button`

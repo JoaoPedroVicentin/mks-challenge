@@ -40,18 +40,22 @@ export function CartProduct({ id, name, photo, quantity, price }: CartProductPro
                 {name}
             </CartProductName>
 
-            <CartProductQuantity>
-                <p>Qtde</p>
-                <div>
-                    <button type="button" onClick={handleDecrease}><Minus size={10} weight='regular' /></button>
-                    <span>{quantity}</span>
-                    <button type="button" onClick={handleIncrease}><Plus size={10} weight='regular' /></button>
-                </div>
-            </CartProductQuantity>
+            <div>
 
-            <CartProductPrice>
-                {priceFormatter.format(price * quantity)}
-            </CartProductPrice>
+                <CartProductQuantity>
+                    <p>Qtde</p>
+                    <div>
+                        <button type="button" onClick={handleDecrease}><Minus size={10} weight='regular' /></button>
+                        <span>{quantity}</span>
+                        <button type="button" onClick={handleIncrease}><Plus size={10} weight='regular' /></button>
+                    </div>
+                </CartProductQuantity>
+
+                <CartProductPrice>
+                    {priceFormatter.format(price * quantity)}
+                </CartProductPrice>
+
+            </div>
 
             <CartProductRemove onClick={handleRemove}>
                 <X size={12} weight='bold' />
