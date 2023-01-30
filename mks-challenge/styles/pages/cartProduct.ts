@@ -13,6 +13,10 @@ export const CartProductContainer = styled.div`
     gap: 1.25rem;
     align-items: center;
     position: relative;
+
+    @media (max-width: 380px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 `
 
 export const CartProductImage = styled.div`

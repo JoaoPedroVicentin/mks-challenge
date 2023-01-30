@@ -1,7 +1,9 @@
 import { HomeContainer } from "@/styles/pages/home";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { CardProduct } from "../components/CardProduct";
+import { ProductSkeleton } from "../components/ProductSkeleton";
 import { api } from "../lib/axios";
 
 interface ProductProps {
@@ -16,17 +18,36 @@ interface ProductProps {
 
 
 export default function Home({ products }: ProductProps) {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => setIsLoading(false), 2000)
+
+    return () => clearTimeout(timeOut)
+  }, [])
+
   return (
     <HomeContainer>
-      {products.map(product => {
-        return (
-          // <Link key={product.id} href={`/product/${product.id}`}>
-            <CardProduct
-              key={product.id}
-              product={product} />
-          //</Link>
-        )
-      })}
+      {isLoading ? 
+      <>
+        <ProductSkeleton />
+        <ProductSkeleton />
+        <ProductSkeleton />
+        <ProductSkeleton />
+      </> :
+        <>
+          {
+            products.map(product => {
+              return (
+                <CardProduct
+                  key={product.id}
+                  product={product} />
+              )
+            })
+          }
+        </>
+      }
     </HomeContainer>
   )
 }

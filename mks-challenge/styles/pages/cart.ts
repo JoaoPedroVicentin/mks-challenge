@@ -7,7 +7,7 @@ export const CartContent = styled(Dialog.Content)`
     right: 0;
     bottom: 0;
 
-    width: 25rem;
+    width: 26rem;
 
     background-color: ${props => props.theme.blue};
 
@@ -19,17 +19,35 @@ export const CartContent = styled(Dialog.Content)`
 
     section{
         display: flex;
+        align-items: center;
+        max-height: 62vh;
         flex-direction: column;
         gap: 1.5rem;
+        margin: 0 auto;
 
         h2{
             font-size: 1rem;
             color: ${props => props.theme.white};
         }
+
+        padding: 1rem;
+        overflow: auto;
+
+        ::-webkit-scrollbar{
+            background-color: ${props => props.theme.blueHover};
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background-color: ${props => props.theme.white};
+            width: 7px;
+        }
+        
     }
 
     @media (max-width: 420px) {
         width: 100%;
+        padding: 1.5rem 0.5rem;
     }
 `
 
@@ -66,11 +84,11 @@ export const CartClose = styled(Dialog.Close)`
 `
 
 export const CartFooter = styled.footer`
+    background-color: ${props => props.theme.blue};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
 
     position: absolute;
     bottom: 0;
