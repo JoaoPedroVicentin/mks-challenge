@@ -2,7 +2,7 @@
 
 Desafio realizado para vaga de desenvolvedor frontend da MKS
 
-Tencologias utilizadas:
+Tecnologias utilizadas:
 
 - React
 - Next
