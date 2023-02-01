@@ -25,6 +25,7 @@ export const CartProductContainer = styled.div`
 
         @media (max-width: 420px) {
             justify-content: center;
+            gap: 1rem;
         }
        
     }
@@ -56,7 +57,6 @@ export const CartProductName = styled.p`
 export const CartProductQuantity = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
     p{
         font-size: 0.5rem;
@@ -75,6 +75,7 @@ export const CartProductQuantity = styled.div`
         gap: 0.5rem;
         border: 0.3px solid ${props => props.theme.gray300};
         border-radius: 4px;
+        width: 5rem;
         padding: 0.25rem 0.5rem;
 
         button{
@@ -100,14 +101,14 @@ export const CartProductQuantity = styled.div`
 
             padding: 0 0.25rem;
 
-            @media (max-width: 420px) {
+            @media (max-width: 580px) {
                 font-size: 1.15rem;
                 padding: 0 0.75rem;
             }
         }
 
-        @media (max-width: 420px) {
-            
+        @media (max-width: 580px) {
+            width: 6rem;
         }
     }
 `
@@ -116,6 +117,7 @@ export const CartProductPrice = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 5rem;
 
     color: ${props => props.theme.black};
     font-size: 1rem;
@@ -126,6 +128,7 @@ export const CartProductPrice = styled.p`
         color: ${props => props.theme.white};
         border-radius: 5px;
         padding: 0.5rem 1rem;
+        width: 6rem;
     }
 `
 
